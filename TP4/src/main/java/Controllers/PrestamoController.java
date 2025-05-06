@@ -23,7 +23,7 @@ public class PrestamoController {
     public Prestamo obtenerPorId(@PathVariable Long id) {
         return prestamoService.buscarPorId(id);
     }
-    @GetMapping("/{Libro}")
+    @GetMapping("/libro/{Libro}")
     public Prestamo obtenerPorLibro(@PathVariable Libro libro) {
         return prestamoService.buscarPorLibro(libro);
     }

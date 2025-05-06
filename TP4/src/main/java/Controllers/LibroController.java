@@ -23,7 +23,7 @@ public class LibroController {
     public Libro obtenerPorId(@PathVariable Long id) {
         return libroService.buscarPorId(id);
     }
-    @GetMapping("/{isbn}")
+    @GetMapping("/isbn/{isbn}")
     public Libro obtenerPorIsbn(@PathVariable String isbn) {
         return libroService.buscarPorIsbn(isbn);
     }
@@ -33,7 +33,8 @@ public class LibroController {
         return libroService.guardar(libro);
     }
 
-    @PutMapping("/{id}")
+    
+    @PutMapping("/{libro}")
     public Libro actualizar( @RequestBody Libro libro) {
         return libroService.actualizar(libro);
     }
