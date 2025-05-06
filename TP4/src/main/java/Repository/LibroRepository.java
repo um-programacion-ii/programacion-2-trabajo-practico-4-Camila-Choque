@@ -1,4 +1,4 @@
-package InterfazRepository;
+package Repository;
 
 import Clases.*;
 import java.util.List;
