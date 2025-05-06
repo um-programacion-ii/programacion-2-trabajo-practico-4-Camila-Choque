@@ -23,7 +23,7 @@ public class UsuarioController {
     public Usuario obtenerPorId(@PathVariable Long id) {
         return usuarioService.buscarPorId(id);
     }
-    @GetMapping("/{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public Usuario obtenerPorNombre(@PathVariable String nombre) {
         return usuarioService.buscarPorNombre(nombre);
     }
