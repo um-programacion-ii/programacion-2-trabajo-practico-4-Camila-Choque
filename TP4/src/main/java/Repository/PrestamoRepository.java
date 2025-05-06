@@ -1,4 +1,4 @@
-package InterfazRepository;
+package Repository;
 
 import Clases.Libro;
 import Clases.Prestamo;
