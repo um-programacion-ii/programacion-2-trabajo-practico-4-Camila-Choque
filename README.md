@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Vg2EF-QZ)
 # 🚀 Trabajo Práctico: Sistema de Gestión de Biblioteca con Spring Framework
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.5-green)
@@ -6,6 +7,84 @@
 ![JUnit5](https://img.shields.io/badge/JUnit-5.10.1-green)
 ![Mockito](https://img.shields.io/badge/Mockito-5.8.0-blue)
 
+## 👨‍🎓 Información del Alumno
+- **Nombre y Apellido**: Camila Choque
+- **Legajo**: 62069
+
+# ⚙️ Instrucciones detalladas de cómo ejecutar el proyecto
+
+### 1. Clonar el repositorio:
+     git clone git@github.com:um-programacion-ii/programacion-2-trabajo-practico-4-Camila-Choque.git
+### 2. Navegar al directorio:
+      cd TP4
+### 3. Comando para compilar y correr test:
+      mvn clean test
+      
+# 📚 Endpoints de Libros 
+
+
+| Método  | Endpoint                  | Descripción                                       |
+|---------|----------------------------|---------------------------------------------------|
+| GET     | `/api/libros`              | Obtiene la lista de todos los libros.             |
+| GET     | `/api/libros/{id}`          | Obtiene un libro por su ID.                       |
+| GET     | `/api/libros/isbn/{isbn}`   | Obtiene un libro por su número ISBN.              |
+| POST    | `/api/libros`              | Crea un nuevo libro.                              |
+| PUT     | `/api/libros/{id}`          | Actualiza un libro existente por su ID.           |
+| DELETE  | `/api/libros/{id}`          | Elimina un libro por su ID.                       |
+
+---
+
+#  📄 Endpoints Prestamos 
+
+| Método  | Endpoint                    | Descripción                                                      |
+|---------|-----------------------------|------------------------------------------------------------------|
+| `GET`   | `/api/prestamos`             | Obtiene la lista de todos los préstamos.                        |
+| `GET`   | `/api/prestamos/{id}`        | Obtiene un préstamo específico según su ID.                     |
+| `GET`   | `/api/prestamos/libro/{id}`  | Obtiene el préstamo asociado a un libro por el ID del libro.     |
+| `POST`  | `/api/prestamos`             | Crea un nuevo préstamo.                                          |
+| `PUT`   | `/api/prestamos/{prestamo}`  | Actualiza un préstamo existente.                                |
+| `DELETE`| `/api/prestamos/{id}`        | Elimina un préstamo por su ID.    
+
+# 👤 Endpoints Usuarios 
+
+| Método  | Endpoint                        | Descripción                                                      |
+|---------|---------------------------------|------------------------------------------------------------------|
+| `GET`   | `/api/usuarios`                 | Obtiene la lista de todos los usuarios.                         |
+| `GET`   | `/api/usuarios/{id}`            | Obtiene un usuario específico según su ID.                       |
+| `GET`   | `/api/usuarios/nombre/{nombre}` | Obtiene un usuario según su nombre.                              |
+| `POST`  | `/api/usuarios`                 | Crea un nuevo usuario.                                           |
+| `PUT`   | `/api/usuarios/{usuario}`       | Actualiza un usuario existente.                                 |
+| `DELETE`| `/api/usuarios/{id}`            | Elimina un usuario por su ID.                                    |
+
+# 📘 Documentación del Sistema
+## 🧱 1-Componentes principales
+
+- Models: Creacion de clases Libro,Prestamo y Usuario.
+  
+- Repository: Se definieron las interfaces de repositorio.
+  
+- Service: Creacion de interfaces de servicios y clases.
+  
+- Controllers: Se utilizo endpoints REST.
+  
+- Test:
+   - Tests unitarios para servicios: Se realizan pruebas individuales de las clases de servicio para verificar que los métodos funcionen correctamente.
+   - Tests unitarios para repositorios:Estas pruebas se enfocan en verificar que las operaciones de acceso a datos en los repositorios se ejecuten correctamente.
+   - Tests de integración para controladores: Verifica el funcinamiento de los endpoints REST.
+     
+# 📈  Decisiones de Diseño
+ - @Service: Separa la lógica de negocio de los controladores y permite la inyección automática de dependencias.
+ - @RestController y @RequestMapping: Facilitan la creación de controladores RESTful y la gestión centralizada de rutas.
+ - Inyección de dependencias: Promueve una arquitectura modular y facilita las pruebas y el mantenimiento.
+ - @Mock: Permite simular el comportamiento de objetos externos durante las pruebas unitarias.
+ - Se utilizo Sprint Initializr.
+
+# 🤖 Uso de IA
+- Se utilizo IA en la etapa 4 para resolver problemas en los test y tambien para mejorar las funciones de controller que tienen como objetivo buscar
+  por algun atributo.
+ # ✅ Pruebas
+  - Todas las pruebas estan adjuntadas en la carpeta "Pruebas".
+    
 ## ⚠️ Importante: Antes de Comenzar
 
 1. **Lectura Completa**
@@ -117,9 +196,6 @@ Desarrollar un sistema de gestión de biblioteca utilizando Spring Framework, im
 
 > 💡 **Nota**: Esta estimación considera la experiencia adquirida en trabajos anteriores y la complejidad de implementar una arquitectura en capas con Spring Framework. El tiempo se ha ajustado considerando que no se requiere implementación de persistencia real.
 
-## 👨‍🎓 Información del Alumno
-- **Nombre y Apellido**: [Nombre y Apellido del Alumno]
-- **Legajo**: [Número de Legajo]
 
 ## 📋 Requisitos Previos
 
