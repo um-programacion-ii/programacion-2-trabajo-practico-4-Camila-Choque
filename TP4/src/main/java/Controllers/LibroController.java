@@ -2,6 +2,7 @@ package Controllers;
 
 import Clases.Libro;
 import Servicios.LibroService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -20,12 +21,23 @@ public class LibroController {
     }
 
     @GetMapping("/{id}")
-    public Libro obtenerPorId(@PathVariable Long id) {
-        return libroService.buscarPorId(id);
+    public ResponseEntity<Libro> obtenerPorId(@PathVariable Long id) {
+        Libro libro = libroService.buscarPorId(id);
+        if (libro != null) {
+            return ResponseEntity.ok(libro);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
     @GetMapping("/isbn/{isbn}")
-    public Libro obtenerPorIsbn(@PathVariable String isbn) {
-        return libroService.buscarPorIsbn(isbn);
+    public ResponseEntity<Libro> obtenerPorIsbn(@PathVariable String isbn) {
+        Libro libro = libroService.buscarPorIsbn(isbn);
+        if (libro != null) {
+            return ResponseEntity.ok(libro);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
@@ -33,11 +45,13 @@ public class LibroController {
         return libroService.guardar(libro);
     }
 
-    
-    @PutMapping("/{libro}")
-    public Libro actualizar( @RequestBody Libro libro) {
+
+    @PutMapping("/{id}")
+    public Libro actualizar(@PathVariable Long id, @RequestBody Libro libro) {
+        libro.setId(id);
         return libroService.actualizar(libro);
     }
+
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {

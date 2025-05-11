@@ -2,7 +2,9 @@ package Controllers;
 
 import Clases.Libro;
 import Clases.Prestamo;
+import Servicios.LibroService;
 import Servicios.PrestamoService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -10,22 +12,36 @@ import java.util.List;
 @RequestMapping("/api/prestamos")
 public class PrestamoController {
     private final PrestamoService prestamoService;
+    private final LibroService libroService;
 
-    public PrestamoController(PrestamoService prestamoService) {
+    public PrestamoController(PrestamoService prestamoService, LibroService libroService) {
         this.prestamoService = prestamoService;
+        this.libroService = libroService;
     }
+
     @GetMapping
     public List<Prestamo> obtenerTodos() {
         return prestamoService.obtenerTodos();
     }
 
     @GetMapping("/{id}")
-    public Prestamo obtenerPorId(@PathVariable Long id) {
-        return prestamoService.buscarPorId(id);
+    public ResponseEntity<Prestamo> obtenerPorId(@PathVariable Long id) {
+        Prestamo prestamo = prestamoService.buscarPorId(id);
+        if (prestamo != null) {
+            return ResponseEntity.ok(prestamo);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-    @GetMapping("/libro/{Libro}")
-    public Prestamo obtenerPorLibro(@PathVariable Libro libro) {
-        return prestamoService.buscarPorLibro(libro);
+    @GetMapping("/libro/{id}")
+    public ResponseEntity<Prestamo> obtenerPorLibro(@PathVariable Long id) {
+        Libro libro = libroService.buscarPorId(id);
+        if (libro != null) {
+            Prestamo prestamo = prestamoService.buscarPorLibro(libro);
+            return ResponseEntity.ok(prestamo);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
