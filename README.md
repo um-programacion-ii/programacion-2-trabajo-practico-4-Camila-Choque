@@ -59,7 +59,7 @@
 # 📘 Documentación del Sistema
 ## 🧱 1-Componentes principales
 
-- Models: Crecion de clases Libro,Prestamo y Usuario.
+- Models: Creacion de clases Libro,Prestamo y Usuario.
   
 - Repository: Se definieron las interfaces de repositorio.
   
@@ -79,6 +79,12 @@
  - @Mock: Permite simular el comportamiento de objetos externos durante las pruebas unitarias.
  - Se utilizo Sprint Initializr.
 
+# 🤖 Uso de IA
+- Se utilizo IA en la etapa 4 para resolver problemas en los test y tambien para mejorar las funciones de controller que tienen como objetivo buscar
+  por algun atributo.
+ # ✅ Pruebas
+  - Todas las pruebas estan adjuntadas en la carpeta "Pruebas".
+    
 ## ⚠️ Importante: Antes de Comenzar
 
 1. **Lectura Completa**
