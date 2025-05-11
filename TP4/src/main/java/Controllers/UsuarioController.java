@@ -1,7 +1,9 @@
 package Controllers;
 
+import Clases.Libro;
 import Clases.Usuario;
 import Servicios.UsuarioService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -20,12 +22,22 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Usuario obtenerPorId(@PathVariable Long id) {
-        return usuarioService.buscarPorId(id);
+    public ResponseEntity<Usuario> obtenerPorId(@PathVariable Long id) {
+        Usuario usuario = usuarioService.buscarPorId(id);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
     @GetMapping("/nombre/{nombre}")
-    public Usuario obtenerPorNombre(@PathVariable String nombre) {
-        return usuarioService.buscarPorNombre(nombre);
+    public ResponseEntity<Usuario> obtenerPorNombre(@PathVariable String nombre) {
+        Usuario usuario = usuarioService.buscarPorNombre(nombre);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
